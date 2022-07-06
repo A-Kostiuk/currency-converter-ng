@@ -1,1 +1,5 @@
-<p>currency-input works!</p>
+<label>
+  <span class="label-text"><ng-content></ng-content></span>
+  <input #input type="number" class="field" value="{{value}}" (input)="inputHandler(++input.value)" />
+</label>
+

@@ -1,1 +1,9 @@
-<p>currency-options works!</p>
+<div class="currency-options-wrapper">
+  <label for="{{id}}">Валюта</label>
+  <select #select class="options__list" id="{{id}}" (change)="changeHandler(select.value)">
+    <option *ngFor="let currencyItem of currency"
+            value="{{currencyItem.cc}}"
+            [selected]="isSelected(currencyItem.cc)"
+    >{{currencyItem.cc}} {{currencyItem.txt}}</option>
+  </select>
+</div>

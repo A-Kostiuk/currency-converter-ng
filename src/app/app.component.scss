@@ -1,0 +1,91 @@
+@import "variables";
+
+.container {
+  text-align: center;
+  min-width: $mobile-width;
+  margin: 0 auto;
+  padding: 10px 20px;
+
+  @media (min-width: $tablet-width) {
+    padding: 10px 30px;
+  }
+
+  @media (min-width: $laptop-width) {
+    padding: 10px 60px;
+  }
+
+  @media (min-width: $desktop-width) {
+    padding: 10px 0;
+    max-width: $desktop-width;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  @media (min-width: $tablet-width) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+  }
+
+  @media (min-width: $laptop-width) {
+    gap: 100px;
+  }
+}
+
+.column {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: 20px;
+}
+
+div.texttransform {
+  margin-top: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  color: $basic-black;
+  font-size: 2vw;
+  gap: 10px;
+
+  b {
+    transform: scaleY(0);
+    animation: texttransform_in 1.5s infinite cubic-bezier(0.76, 0, 0.24, 1);
+    @for $i from 0 to 25 {
+      &:nth-child(#{$i+1}) {
+        animation-delay: #{$i * 0.15}s;
+      }
+    }
+  }
+}
+
+div.linesquare {
+  b {
+    width: 2rem;
+    height: 2rem;
+    background-color: $basic-white;
+  }
+}
+
+@keyframes texttransform_in {
+  0% {
+    transform-origin: 50% 100%;
+    transform: scaleY(0)
+  }
+  25% {
+    transform-origin: 50% 100%;
+    transform: scaleY(1)
+  }
+  75% {
+    transform-origin: 50% 0%;
+    transform: scaleY(1)
+  }
+  100% {
+    transform-origin: 50% 0%;
+    transform: scaleY(0)
+  }
+}

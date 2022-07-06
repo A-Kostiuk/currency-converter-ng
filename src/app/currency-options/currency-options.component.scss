@@ -1,0 +1,18 @@
+@import "variables";
+
+.currency-options-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.options__list {
+  font-size: 20px;
+  width: 75px;
+  border-radius: 5px;
+  padding: 10px 5px;
+  border: 1px solid $dark-grey;
+  font-family: inherit;
+  background-color: $light-grey;
+}
